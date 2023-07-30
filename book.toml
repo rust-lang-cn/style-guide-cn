@@ -1,0 +1,12 @@
+[book]
+title = "Rust 语言风格指南 中文版"
+author = "The Rust Style Team"
+translator = "Rust 中文翻译项目组，Rust 中文社区"
+multilingual = false
+language = "zh-CN"
+src = "src"
+
+[output.html]
+additional-js = ["language.js"]
+git-repository-url = "https://github.com/rust-lang-cn/style-guide-cn"
+edit-url-template = "https://github.com/rust-lang-cn/style-guide-cn/edit/main/{path}"
