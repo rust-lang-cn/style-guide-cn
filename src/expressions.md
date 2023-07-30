@@ -1,14 +1,10 @@
-## Expressions
+# 表达式
 
-### Blocks
+## 块
 
-A block expression must have a newline after the initial `{` and before the
-terminal `}`, unless it qualifies to be written as a single line based on
-another style rule.
+块表达式必须在首行 `{` 后和末行 `}` 前加换行符，除非根据其他样式规则可以写成单行。
 
-A keyword before the block (such as `unsafe` or `async`) must be on the same
-line as the opening brace, with a single space between the keyword and the
-opening brace. Indent the contents of the block.
+代码块前的关键字（如 `unsafe` 或 `async`）必须与开头的括号在同一行，关键字与开头的括号之间用一个空格隔开。缩进代码块的内容。
 
 ```rust
 fn block_as_stmt() {
@@ -117,7 +113,7 @@ fn main() {
 ```
 
 
-### Closures
+## Closures
 
 Don't put any extra spaces before the first `|` (unless the closure is prefixed
 by a keyword such as `move`); put a space between the second `|` and the
@@ -156,7 +152,7 @@ move |arg1: i32, arg2: i32| -> i32 {
 ```
 
 
-### Struct literals
+## Struct literals
 
 If a struct literal is *small*, format it on a single line, and do not use a
 trailing comma. If not, split it across multiple lines, with each field on its
@@ -186,7 +182,7 @@ let f = Foo {
 ```
 
 
-### Tuple literals
+## Tuple literals
 
 Use a single-line form where possible. Do not put spaces between the opening
 parenthesis and the first element, or between the last element and the closing
@@ -206,7 +202,7 @@ let x = (
 ```
 
 
-### Tuple struct literals
+## Tuple struct literals
 
 Do not put space between the identifier and the opening parenthesis. Otherwise,
 follow the rules for tuple literals:
@@ -221,7 +217,7 @@ let x = Foo(
 ```
 
 
-### Enum literals
+## Enum literals
 
 Follow the formatting rules for the various struct literals. Prefer using the
 name of the enum as a qualifying name, unless the enum is in the prelude:
@@ -236,7 +232,7 @@ Ok(an_expr)
 ```
 
 
-### Array literals
+## Array literals
 
 Write small array literals on a single line. Do not put spaces between the opening
 square bracket and the first element, or between the last element and the closing
@@ -277,7 +273,7 @@ fn main() {
 ```
 
 
-### Array accesses, indexing, and slicing.
+## Array accesses, indexing, and slicing.
 
 Don't put spaces around the square brackets. Avoid breaking lines if possible.
 Never break a line between the target expression and the opening square
@@ -300,13 +296,13 @@ fn main() {
 }
 ```
 
-### Unary operations
+## Unary operations
 
 Do not include a space between a unary op and its operand (i.e., `!x`, not
 `! x`). However, there must be a space after `&mut`. Avoid line-breaking
 between a unary operator and its operand.
 
-### Binary operations
+## Binary operations
 
 Do include spaces around binary ops (i.e., `x + 1`, not `x+1`) (including `=`
 and other assignment operators such as `+=` or `*=`).
@@ -335,7 +331,7 @@ foo_bar
 Prefer line-breaking at an assignment operator (either `=` or `+=`, etc.) rather
 than at other binary operators.
 
-### Control flow
+## Control flow
 
 Do not include extraneous parentheses for `if` and `while` expressions.
 
@@ -354,7 +350,7 @@ if (true) {
 Do include extraneous parentheses if it makes an arithmetic or logic expression
 easier to understand (`(x * 15) + (y * 20)` is fine)
 
-### Function calls
+## Function calls
 
 Do not put a space between the function name, and the opening parenthesis.
 
@@ -364,7 +360,7 @@ Do put a space between an argument, and the comma which precedes it.
 
 Prefer not to break a line in the callee expression.
 
-#### Single-line calls
+### Single-line calls
 
 Do not put a space between the function name and open paren, between the open
 paren and the first argument, or between the last argument and the close paren.
@@ -375,7 +371,7 @@ Do not put a comma after the last argument.
 foo(x, y, z)
 ```
 
-#### Multi-line calls
+### Multi-line calls
 
 If the function call is not *small*, it would otherwise over-run the max width,
 or any argument or the callee is multi-line, then format the call across
@@ -391,7 +387,7 @@ a_function_call(
 ```
 
 
-### Method calls
+## Method calls
 
 Follow the function rules for calling.
 
@@ -402,14 +398,14 @@ x.foo().bar().baz(x, y, z);
 ```
 
 
-### Macro uses
+## Macro uses
 
 If a macro can be parsed like other constructs, format it like those
 constructs. For example, a macro use `foo!(a, b, c)` can be parsed like a
 function call (ignoring the `!`), so format it using the rules for function
 calls.
 
-#### Special case macros
+### Special case macros
 
 For macros which take a format string, if all other arguments are *small*,
 format the arguments before the format string on a single line if they fit, and
@@ -431,7 +427,7 @@ assert_eq!(
 ```
 
 
-### Casts (`as`)
+## Casts (`as`)
 
 Put spaces before and after `as`:
 
@@ -440,7 +436,7 @@ let cstr = "Hi\0" as *const str as *const [u8] as *const std::os::raw::c_char;
 ```
 
 
-### Chains of fields and method calls
+## Chains of fields and method calls
 
 A chain is a sequence of field accesses, method calls, and/or uses of the try
 operator `?`. E.g., `a.b.c().d` or `foo?.bar().baz?`.
@@ -478,7 +474,7 @@ foo(
     .qux();
 ```
 
-#### Multi-line elements
+### Multi-line elements
 
 If any element in a chain is formatted across multiple lines, put that element
 and any later elements on their own lines.
@@ -513,7 +509,7 @@ self.pre_comment.as_ref().map_or(
 )
 ```
 
-### Control flow expressions
+## Control flow expressions
 
 This section covers `if`, `if let`, `loop`, `while`, `while let`, and `for`
 expressions.
@@ -585,7 +581,7 @@ if !self.config.file_lines().intersects(
 ```
 
 
-#### Single line `if else`
+### Single line `if else`
 
 Put an `if else` or `if let else` on a single line if it occurs in expression
 context (i.e., is not a standalone statement), it contains a single `else`
@@ -609,7 +605,7 @@ if x {
 ```
 
 
-### Match
+## Match
 
 Prefer not to line-break inside the discriminant expression. Always break after
 the opening brace and before the closing brace. Block-indent the match arms
@@ -718,7 +714,7 @@ match foo {
 }
 ```
 
-#### Line-breaking
+### Line-breaking
 
 If using a block form on the right-hand side of a match arm makes it possible
 to avoid breaking on the left-hand side, do that:
@@ -813,7 +809,7 @@ small_no_tuple:
 E.g., `&&Some(foo)` matches, `Foo(4, Bar)` does not.
 
 
-### Combinable expressions
+## Combinable expressions
 
 Where a function call has a single argument, and that argument is formatted
 across multiple-lines, format the outer call as if it were a single-line call,
@@ -862,7 +858,7 @@ foo(first_arg, x, |param| {
 ```
 
 
-### Ranges
+## Ranges
 
 Do not put spaces in ranges, e.g., `0..10`, `x..=y`, `..x.len()`, `foo..`.
 
@@ -880,13 +876,13 @@ expression, use parentheses around it, e.g., `..(x + 1)`, `(x.f)..(x.f.len())`,
 or `0..(x - 10)`.
 
 
-### Hexadecimal literals
+## Hexadecimal literals
 
 Hexadecimal literals may use upper- or lower-case letters, but they must not be
 mixed within the same literal. Projects should use the same case for all
 literals, but we do not make a recommendation for either lower- or upper-case.
 
-## Patterns
+# Patterns
 
 Format patterns like their corresponding expressions. See the section on
 `match` for additional formatting for patterns in match arms.

@@ -1,64 +1,46 @@
-# Rust Style Guide
+# Rust 语言风格指南
 
-## Motivation - why use a formatting tool?
+## 动机——为什么要使用格式化工具？
 
-Formatting code is a mostly mechanical task which takes both time and mental
-effort. By using an automatic formatting tool, a programmer is relieved of
-this task and can concentrate on more important things.
+格式化代码是一项耗时耗力的机械性工作。如果使用自动格式化工具，开发者就可以从这项工作中解脱出来，专注于更重要的事情。
 
-Furthermore, by sticking to an established style guide (such as this one),
-programmers don't need to formulate ad hoc style rules, nor do they need to
-debate with other programmers what style rules should be used, saving time,
-communication overhead, and mental energy.
+此外，通过坚持使用既定的风格指南（如本指南），开发者无需制定特别的风格规则，也无需与其他开发者争论应使用何种样式规则，从而节省了时间、沟通成本和精神耗损。
 
-Humans comprehend information through pattern matching. By ensuring that all
-Rust code has similar formatting, less mental effort is required to comprehend a
-new project, lowering the barrier to entry for new developers.
+人类通过模式匹配来理解信息。通过确保所有 Rust 代码具有相似的格式，就能减少理解新项目所需的脑力劳动，从而降低新开发人员的入门门槛。
 
-Thus, there are productivity benefits to using a formatting tool (such as
-`rustfmt`), and even larger benefits by using a community-consistent
-formatting, typically by using a formatting tool's default settings.
+因此，使用格式化工具（如 `rustfmt`）可以提高工作效率，而使用社区一致的格式规约（通常是使用格式化工具的默认设置）则会带来更大的好处。
 
-## The default Rust style
+## 默认 Rust 风格
 
-The Rust Style Guide defines the default Rust style, and *recommends* that
-developers and tools follow the default Rust style. Tools such as `rustfmt` use
-the style guide as a reference for the default style. Everything in this style
-guide, whether or not it uses language such as "must" or the imperative mood
-such as "insert a space ..." or "break the line after ...", refers to the
-default style.
+《Rust 语言风格指南》定义了默认 Rust 风格，并**建议**开发者和工具遵循默认 Rust 样式。`rustfmt` 等工具使用此风格指南作为默认风格的参考。本风格指南中的所有内容，无论是否使用“必须”等语言或“插入空格......”或“在......后换行”等命令式语气，都是指默认样式。
 
-This should not be interpreted as forbidding developers from following a
-non-default style, or forbidding tools from adding any particular configuration
-options.
+这不应被解释为禁止开发人员遵循非默认样式，或禁止工具添加任何特定的配置选项。
 
-## Formatting conventions
+## 格式约定
 
-### Indentation and line width
+### 缩进和行宽
 
-* Use spaces, not tabs.
-* Each level of indentation must be 4 spaces (that is, all indentation
-  outside of string literals and comments must be a multiple of 4).
-* The maximum width for a line is 100 characters.
+- 使用空格，而不是制表符。
+- 每级缩进必须是 4 个空格（也就是说，字符串字面量和注释之外的所有缩进空格数都必须是 4 的倍数）。
+- 一行的最大宽度为 100 个字符。
 
-#### Block indent
+#### 块缩进
 
-Prefer block indent over visual indent:
+与视觉化缩进（visual indent）相比，更倾向于分块缩进：
 
 ```rust
-// Block indent
+// 块缩进
 a_function_call(
     foo,
     bar,
 );
 
-// Visual indent
+// 视觉化缩进
 a_function_call(foo,
                 bar);
 ```
 
-This makes for smaller diffs (e.g., if `a_function_call` is renamed in the above
-example) and less rightward drift.
+这样做的差异就会变小（例如，在上例中重命名了`a_function_call`），向右移动的情况也会减少。
 
 ### Trailing commas
 

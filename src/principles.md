@@ -1,29 +1,21 @@
-# Guiding principles and rationale
+# 指导原则和基本原理
 
-When deciding on style guidelines, the style team follows these guiding
-principles (in rough priority order):
+在确定风格指南时，风格团队遵循以下指导原则（按大致优先顺序排列）：
 
-* readability
-    - scan-ability
-    - avoiding misleading formatting
-    - accessibility - readable and editable by users using the widest
-      variety of hardware, including non-visual accessibility interfaces
-    - readability of code in contexts without syntax highlighting or IDE
-      assistance, such as rustc error messages, diffs, grep, and other
-      plain-text contexts
-
-* aesthetics
-    - sense of 'beauty'
-    - consistent with other languages/tools
-
-* specifics
-    - compatibility with version control practices - preserving diffs,
-      merge-friendliness, etc.
-    - preventing rightward drift
-    - minimising vertical space
-
-* application
-    - ease of manual application
-    - ease of implementation (in `rustfmt`, and in other tools/editors/code generators)
-    - internal consistency
-    - simplicity of formatting rules
+- 可读性
+  - 可扫描性
+  - 避免格式误导
+  - 可访问性——使用各种硬件（包括非视觉可访问界面）的用户均可阅读辑
+  - 代码在没有语法高亮或集成开发环境辅助的情况下的可读性，如 rustc 错误信息、差异内容、grep 和其他纯文本情况下的可读性
+- 美感
+  - 美感
+  - 与其他语言/工具保持一
+- 特殊性
+  - 与版本控制实践兼容——保留差异、便于合并等
+  - 防止向右偏移（preventing rightward drift）
+  - 尽量减少垂直空
+- 应用
+  - 易于手动应用
+  - 易于实施（在 `rustfmt`` 和其他工具/编辑器/代码生成器中）
+  - 内部一致性
+  - 格式规则简单

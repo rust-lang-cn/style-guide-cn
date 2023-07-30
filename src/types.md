@@ -1,25 +1,24 @@
-## Types and Bounds
+# 类型和约束
 
-### Single line formatting
+## 单行格式
 
-* `[T]` no spaces
-* `[T; expr]`, e.g., `[u32; 42]`, `[Vec<Foo>; 10 * 2 + foo()]` (space after colon, no spaces around square brackets)
-* `*const T`, `*mut T` (no space after `*`, space before type)
-* `&'a T`, `&T`, `&'a mut T`, `&mut T` (no space after `&`, single spaces separating other words)
-* `unsafe extern "C" fn<'a, 'b, 'c>(T, U, V) -> W` or `fn()` (single spaces around keywords and sigils, and after commas, no trailing commas, no spaces around brackets)
-* `!` gets treated like any other type name, `Name`
-* `(A, B, C, D)` (spaces after commas, no spaces around parens, no trailing comma unless it is a one-tuple)
-* `<Baz<T> as SomeTrait>::Foo::Bar` or `Foo::Bar` or `::Foo::Bar` (no spaces around `::` or angle brackets, single spaces around `as`)
-* `Foo::Bar<T, U, V>` (spaces after commas, no trailing comma, no spaces around angle brackets)
-* `T + T + T` (single spaces between types, and `+`).
-* `impl T + T + T` (single spaces between keyword, types, and `+`).
+- `[T]` 不带空格
+- `[T; expr]`，例如：`[u32; 42]`、`[Vec<Foo>; 10 * 2 + foo()]`（冒号后空格，方括号无空格）
+- `*const T`、`*mut T`（`*`后无空格，类型前有空格）
+- `&'a T`、`&T`、`&'a mut T`、`&mut T`（`&` 后无空格，其他单词用单个空格隔开）
+- `unsafe extern "C" fn<'a， 'b, 'c>(T, U, V) -> W` 或 `fn()`（关键字和符号后有空格，逗号后有空格，逗号后无空格，括号后无空格）。
+- `!` 与其他类型名称一样，`Name`
+- `(A, B, C, D)`（逗号后有空格，双引号无空格，除非是单元组，否则逗号后无空格）
+- `<Baz<T> as SomeTrait>::Foo::Bar` 或 F`oo::Bar` 或 `::Foo::Bar` （`::` 或尖括号后无空格，`as` 前后各有一个空格）
+- `Foo::Bar<T, U, V>`（逗号后有空格，逗号前无空格，尖括号前后无空格）
+- `T + T + T`（类型和 `＋` 之间用一个空格）。
+- `impl T + T + T`（关键字、类型和 `+`` 之间用空格隔开）。
 
-Do not put space around parentheses used in types, e.g., `(Foo)`
+类型中使用的括号不要空格，例如 `(Foo)`。
 
+## 换行
 
-### Line breaks
-
-Avoid breaking lines in types where possible. Prefer breaking at outermost scope, e.g., prefer
+尽可能避免在类型中换行。最好在最外层的范围内换行，例如，最好使用以下形式：
 
 ```rust
 Foo<
@@ -28,7 +27,7 @@ Foo<
 >
 ```
 
-to
+而不采用：
 
 ```rust
 Foo<Bar, Baz<
@@ -37,17 +36,15 @@ Foo<Bar, Baz<
 >>
 ```
 
-If a type requires line-breaks in order to fit, this section outlines where to
-break such types if necessary.
+如果一个类型需要换行才能适应，本节概括了在必要时应在何处换行。
 
-Break `[T; expr]` after the `;` if necessary.
+必要时，在 `;` 后分隔 `[T; expr]`。
 
-Break function types following the rules for function declarations.
+按照函数声明的规则断开函数类型。
 
-Break generic types following the rules for generics.
+按照泛型的规则断开泛型类型。
 
-Break types with `+` by breaking before the `+` and block-indenting the
-subsequent lines. When breaking such a type, break before *every* `+`:
+断开带 `+` 的类型，方法是在 `+` 之前断开，并在随后的行中用块缩进。断开此类类型时，应在**每个** `+` 之前断开：
 
 ```rust
 impl Clone

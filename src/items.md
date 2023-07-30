@@ -1,22 +1,14 @@
-## Items
+# 程序项
 
-Items consist of the set of things permitted at the top level of a module.
-However, Rust also allows some items to appear within some other types of
-items, such as within a function. The same formatting conventions apply whether
-an item appears at module level or within another item.
+程序项（item，简称项）包括模块顶层允许使用的一系列内容。不过，Rust 也允许某些程序项出现在其他类型的程序项中，如函数中。无论程序项是出现在模块层还是出现在其他程序项中，都适用相同的格式约定。
 
-`extern crate` statements must be first in a file. They must be ordered
-alphabetically.
+`extern crate` 语句必须放在文件的首位。它们必须按字母顺序排列。
 
-`use` statements, and module *declarations* (`mod foo;`, not `mod { ... }`)
-must come before other items. Put imports before module declarations. Sort each
-alphabetically, except that `self` and `super` must come before any other
-names.
+`use` 语句和模块声明（`mod foo;`，而不是 `mod { ... }`）必须放在其他程序项之前。将导入放在模块声明之前。按字母顺序排序，但 `self` 和 `super` 必须排在其他名称之前。
 
-Don't automatically move module declarations annotated with `#[macro_use]`,
-since that might change semantics.
+不要自动移动注有 `#[macro_use]` 的模块声明，因为这可能会改变语义。
 
-### Function definitions
+## Function definitions
 
 In Rust, people often find functions by searching for `fn [function-name]`, so
 the formatting of function definitions must enable this.
@@ -47,13 +39,13 @@ fn foo(
 Note the trailing comma on the last argument.
 
 
-### Tuples and tuple structs
+## Tuples and tuple structs
 
 Write the type list as you would a parameter list to a function.
 
 Build a tuple or tuple struct as you would call a function.
 
-#### Single-line
+### Single-line
 
 ```rust
 struct Bar(Type1, Type2);
@@ -62,7 +54,7 @@ let x = Bar(11, 22);
 let y = (11, 22, 33);
 ```
 
-### Enums
+## Enums
 
 In the declaration, put each variant on its own line, block indented.
 
@@ -97,7 +89,7 @@ such a situation might be an indication that you should factor out the fields
 of the variant into their own struct.
 
 
-### Structs and Unions
+## Structs and Unions
 
 Struct names follow on the same line as the `struct` keyword, with the opening
 brace on the same line when it fits within the right margin. All struct fields
@@ -139,7 +131,7 @@ union Foo {
 ```
 
 
-### Tuple structs
+## Tuple structs
 
 Put the whole struct on one line if possible. Separate types within the
 parentheses using a comma and space. Don't use a trailing comma for a
@@ -166,7 +158,7 @@ pub struct Foo(
 ```
 
 
-### Traits
+## Traits
 
 Use block-indent for trait items. If there are no items, format the trait (including its `{}`)
 on a single line. Otherwise, break after the opening brace and before
@@ -205,7 +197,7 @@ pub trait IndexRanges:
 ```
 
 
-### Impls
+## Impls
 
 Use block-indent for impl items. If there are no items, format the impl
 (including its `{}`) on a single line. Otherwise, break after the opening brace
@@ -232,7 +224,7 @@ impl Bar
 ```
 
 
-### Extern crate
+## Extern crate
 
 `extern crate foo;`
 
@@ -263,7 +255,7 @@ macro_rules! foo {
 ```
 
 
-### Generics
+## Generics
 
 Prefer to put a generics clause on one line. Break other parts of an item
 declaration rather than line-breaking a generics clause. If a generics clause is
@@ -300,7 +292,7 @@ If an associated type is bound in a generic type, put spaces around the `=`:
 Prefer to use single-letter names for generic parameters.
 
 
-### `where` clauses
+## `where` clauses
 
 These rules apply for `where` clauses on any item.
 
@@ -373,7 +365,7 @@ where
         + Index<RangeFull>,
 ```
 
-### Type aliases
+## Type aliases
 
 Keep type aliases on one line when they fit. If necessary to break the line, do
 so after the `=`, and block-indent the right-hand side:
@@ -399,7 +391,7 @@ where
 ```
 
 
-### Associated types
+## Associated types
 
 Format associated types like type aliases. Where an associated type has a
 bound, put a space after the colon but not before:
@@ -409,14 +401,14 @@ pub type Foo: Bar;
 ```
 
 
-### extern items
+## extern items
 
 When writing extern items (such as `extern "C" fn`), always specify the ABI.
 For example, write `extern "C" fn foo ...`, not `extern fn foo ...`, or
 `extern "C" { ... }`.
 
 
-### Imports (`use` statements)
+## Imports (`use` statements)
 
 Format imports on one line where possible. Don't put spaces around braces.
 
@@ -427,7 +419,7 @@ use a::b::{foo, bar, baz};
 ```
 
 
-#### Large list imports
+### Large list imports
 
 Prefer to use multiple imports rather than a multi-line import. However, tools
 should not split imports by default.
@@ -451,7 +443,7 @@ foo::{
 ```
 
 
-#### Ordering of imports
+### Ordering of imports
 
 A *group* of imports is a set of imports on the same or sequential lines. One or
 more blank lines or other items (e.g., a function) separate groups of imports.
@@ -483,7 +475,7 @@ use b;
 Because of `macro_use`, attributes must also start a new group and prevent
 re-ordering.
 
-#### Ordering list import
+### Ordering list import
 
 Names in a list import must be sorted ASCIIbetically, but with `self` and
 `super` first, and groups and glob imports last. This applies recursively. For
@@ -491,7 +483,7 @@ example, `a::*` comes before `b::a` but `a::b` comes before `a::*`. E.g.,
 `use foo::bar::{a, b::c, b::d, b::d::{x, y, z}, b::{self, r, s}};`.
 
 
-#### Normalisation
+### Normalisation
 
 Tools must make the following normalisations, recursively:
 
@@ -503,7 +495,7 @@ Tools must not otherwise merge or un-merge import lists or adjust glob imports
 (without an explicit option).
 
 
-#### Nested imports
+### Nested imports
 
 If there are any nested imports in a list import, then use the multi-line form,
 even if the import fits on one line. Each nested import must be on its own line,
@@ -520,7 +512,7 @@ use a::b::{
 ```
 
 
-#### Merging/un-merging imports
+### Merging/un-merging imports
 
 An example:
 

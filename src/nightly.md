@@ -1,5 +1,5 @@
-This chapter documents style and formatting for nightly-only syntax. The rest of the style guide documents style for stable Rust syntax; nightly syntax only appears in this chapter. Each section here includes the name of the feature gate, so that searches (e.g. `git grep`) for a nightly feature in the Rust repository also turn up the style guide section.
+本章记录了开发版特定（nightly-only，直译为：夜间特定）语法的样式和格式。风格指南的其余部分记录了 Rust 稳定语法的风格；开发版特定语法仅出现在本章。这里的每一节都包含了特性门类的名称，因此在 Rust 代码库中搜索（例如 `git grep`）开发版特性时，也会出现样式指南部分。
 
-Style and formatting for nightly-only syntax should be removed from this chapter and integrated into the appropriate sections of the style guide at the time of stabilization.
+开发版特定语法的样式和格式应从本章移除，并在稳定化时整合到样式指南的相应章节中。
 
-There is no guarantee of the stability of this chapter in contrast to the rest of the style guide. Refer to the style team policy for nightly formatting procedure regarding breaking changes to this chapter.
+与样式指南的其他部分相比，本章的稳定性无法保证。有关对本章进行中断更改的夜间格式化程序，请参阅样式团队政策。

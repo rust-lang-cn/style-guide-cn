@@ -1,12 +1,12 @@
 # Summary
 
-[Introduction](README.md)
+[简介](README.md)
 
-- [Items](items.md)
-- [Statements](statements.md)
-- [Expressions](expressions.md)
-- [Types and Bounds](types.md)
-- [Other style advice](advice.md)
-- [`Cargo.toml` conventions](cargo.md)
-- [Guiding principles and rationale](principles.md)
-- [Nightly-only syntax](nightly.md)
+- [程序项](items.md)
+- [语句](statements.md)
+- [表达式](expressions.md)
+- [类型和约束](types.md)
+- [其他风格建议](advice.md)
+- [`Cargo.toml` 的约定](cargo.md)
+- [指导原则和基本原理](principles.md)
+- [开发版特定语法](nightly.md)

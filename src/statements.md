@@ -1,12 +1,11 @@
-## Statements
+# 语句
 
-### Let statements
+## `let` 语句
 
-Put a space after the `:` and on both sides of the `=` (if they are present).
-Don't put a space before the semicolon.
+在 `:` 后面和 `=` 的两边（若它们存在的话）空一格。分号前不要空格。
 
 ```rust
-// A comment.
+// 一条注释。
 let pattern: Type = expr;
 
 let pattern;
@@ -14,20 +13,14 @@ let pattern: Type;
 let pattern = expr;
 ```
 
-If possible, format the declaration on a single line. If not possible, then try
-splitting after the `=`, if the declaration fits on two lines. Block-indent the
-expression.
+如果可能，将声明格式化成一行。如果不可能，则在 `=` 之后尝试分割，如果声明适合在两行中进行。将表达式块缩进。
 
 ```rust
 let pattern: Type =
     expr;
 ```
 
-If the first line still does not fit on a single line, split after the `:`, and
-use block indentation. If the type requires multiple lines, even after
-line-breaking after the `:`, then place the first line on the same line as the
-`:`, subject to the [combining rules](expressions.html#combinable-expressions).
-
+如果第一行仍不能排在一行上，则在 `:` 之后分行，并使用块缩进。即使在 `:` 后分行后类型还需要多行，也应将第一行放在与 `:` 相同的行上，并遵守[合并规则](expressions.html#combinable-expressions)。
 
 ```rust
 let pattern:
@@ -35,7 +28,7 @@ let pattern:
     expr;
 ```
 
-e.g,
+例如：
 
 ```rust
 let Foo {
@@ -50,15 +43,9 @@ let (abcd,
 { ... }
 ```
 
-If the expression covers multiple lines, if the first line of the expression
-fits in the remaining space, it stays on the same line as the `=`, and the rest
-of the expression is not further indented. If the first line does not fit, then
-put the expression on subsequent lines, block indented. If the expression is a
-block and the type or pattern cover multiple lines, put the opening brace on a
-new line and not indented (this provides separation for the interior of the
-block from the type); otherwise, the opening brace follows the `=`.
+如果表达式包含多行，若表达式的第一行适合在余下空位上，则表达式与 `=` 保留在同一行，表达式的其余部分不再缩进。如果第一行不合适，则将表达式放在后面的行中，分块缩进。如果表达式是一个代码块，且类型或模式覆盖多行，则将开头括号放在新的一行，且不缩进（这样可以将代码块内部与类型分开）；否则，开头括号放在 `=` 之后。
 
-Examples:
+示例：
 
 ```rust
 let foo = Foo {
@@ -101,7 +88,7 @@ let Foo {
 );
 ```
 
-#### else blocks (let-else statements)
+### else blocks (let-else statements)
 
 A let statement can contain an `else` component, making it a let-else statement.
 In this case, always apply the same formatting rules to the components preceding
@@ -231,7 +218,7 @@ fn main() {
 }
 ```
 
-### Macros in statement position
+## Macros in statement position
 
 For a macro use in statement position, use parentheses or square brackets as
 delimiters, and terminate it with a semicolon. Do not put spaces around the
@@ -243,7 +230,7 @@ a_macro!(...);
 ```
 
 
-### Expressions in statement position
+## Expressions in statement position
 
 Do not put space between the expression and the semicolon.
 
