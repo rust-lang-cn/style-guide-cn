@@ -13,9 +13,9 @@
 > - 首次于 2023-07-31 翻译完全部内容，欢迎纠正——最后更新时间 2023-07-31。
 > - 期待更多朋友加入 [Rust 中文翻译项目组](https://github.com/rust-lang-cn)，协助我们，一起更新完善中文版，感激不尽！
 
-这是《Rust 语言风格指南》中文版，翻译自 [Rust 源码中的《style-guide Book》][style-guide-src]。
+这是《Rust 语言风格指南》中文版，翻译自 [Rust 源码中的《The Rust Style Guide》][style-guide-src]。
 
-在线版可在本组织官网上阅读，包括[全球站点][style-guide-cn]或[国内站点][style-guide-cn-zh]（**支持同一页面中英双语切换**）,或者在 Rust 官网上[阅读英文版][style-guide-en]。
+在线版可在本组织官网上阅读，包括[全球站点][style-guide-cn]或[国内站点][style-guide-cn-zh]（**均支持同一页面中英双语切换**）,或者在 Rust 官网上[阅读英文版][style-guide-en]。
 
 [style-guide-src]: https://github.com/rust-lang/rust/tree/master/src/doc/style-guide
 [style-guide-cn]: https://rustwiki.org/zh-CN/style-guide/

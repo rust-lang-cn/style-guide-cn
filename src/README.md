@@ -28,7 +28,7 @@
 
 与视觉化缩进（visual indent）相比，更倾向于分块缩进：
 
-```rust
+```rust,ignore
 // 块缩进
 a_function_call(
     foo,
@@ -42,12 +42,11 @@ a_function_call(foo,
 
 这样做的差异就会变小（例如，在上例中重命名了`a_function_call`），向右移动的情况也会减少。
 
-### Trailing commas
+### 尾逗号
 
-In comma-separated lists of any kind, use a trailing comma when followed by a
-newline:
+在任何类型的逗号分隔列表中，如果后面有换行符，请使用尾逗号：
 
-```rust
+```rust,ignore
 function_call(
     argument,
     another_argument,
@@ -60,16 +59,13 @@ let array = [
 ];
 ```
 
-This makes moving code (e.g., by copy and paste) easier, and makes diffs
-smaller, as appending or removing items does not require modifying another line
-to add or remove a comma.
+这使得移动代码（例如通过复制和粘贴）变得更容易，并使差异更小，因为添加或删除项目不需要修改另一行来添加或删除逗号。
 
-### Blank lines
+### 空行
 
-Separate items and statements by either zero or one blank lines (i.e., one or
-two newlines). E.g,
+不用空行或一个空行（即 1 或 2 个换行符）分隔程序项和语句。例如：
 
-```rust
+```rust,ignore
 fn foo() {
     let x = ...;
 
@@ -81,54 +77,43 @@ fn bar() {}
 fn baz() {}
 ```
 
-### [Module-level items](items.md)
-### [Statements](statements.md)
-### [Expressions](expressions.md)
-### [Types](types.md)
+### [模块级别的程序序项](items.md)
+### [语句](statements.md)
+### [表达式](expressions.md)
+### [类型](types.md)
 
+### 注释
 
-### Comments
+以下关于注释的指导原则仅为建议，机器格式化工具可能会跳过注释格式化。
 
-The following guidelines for comments are recommendations only, a mechanical
-formatter might skip formatting of comments.
+行注释 (`//`) 优先于块注释 (`/* ... */`)。
 
-Prefer line comments (`//`) to block comments (`/* ... */`).
+使用行注释时，在开头符号后留一个空格。
 
-When using line comments, put a single space after the opening sigil.
+使用单行块注释时，在开头符号后和结尾符号前各留一个空格。对于多行块注释，在开头符号后加一个换行符，在结尾符号前加一个换行符。
 
-When using single-line block comments, put a single space after the opening
-sigil and before the closing sigil. For multi-line block comments, put a
-newline after the opening sigil, and a newline before the closing sigil.
+注释最好独立成行。如果注释紧跟代码，则在注释前空格一个。如果块注释出现在行内，则使用周围的空格，就像使用标识符或关键字一样。不要在注释后或多行注释中任何一行的末尾使用拖尾空格。例如：
 
-Prefer to put a comment on its own line. Where a comment follows code, put a
-single space before it. Where a block comment appears inline, use surrounding
-whitespace as if it were an identifier or keyword. Do not include trailing
-whitespace after a comment or at the end of any line in a multi-line comment.
-Examples:
-
-```rust
-// A comment on an item.
+```rust,ignore
+// 程序项中的注释。
 struct Foo { ... }
 
-fn foo() {} // A comment after an item.
+fn foo() {} // 在一个项后的注释。
 
-pub fn foo(/* a comment before an argument */ x: T) {...}
+pub fn foo(/* 在参数前的注释 */ x: T) {...}
 ```
 
-Comments should usually be complete sentences. Start with a capital letter, end
-with a period (`.`). An inline block comment may be treated as a note without
-punctuation.
+注释通常应是完整的句子。英文的注释开头用大写字母，结尾用句点（`.`）（译注：若是使用中文注释，则换成中文标点符号）。内联块注释可视为不带标点符号的注释。
 
-Source lines which are entirely a comment should be limited to 80 characters
-in length (including comment sigils, but excluding indentation) or the maximum
-width of the line (including comment sigils and indentation), whichever is
-smaller:
+完全是注释的源文件行长度应限制在 80 个字符以内（包括注释符号，但不包括缩进），或该行的最大宽度（包括注释符号和缩进），以较小者为准：
 
-```rust
+```rust,ignore
 // This comment goes up to the ................................. 80 char margin.
+// 该注释的边距为 ............................. 80 字符。
 
 {
     // This comment is .............................................. 80 chars wide.
+    // 此注释宽 ............................................................. 80 字符。
 }
 
 {
@@ -138,6 +123,7 @@ smaller:
                 {
                     {
                         // This comment is limited by the ......................... 100 char margin.
+                        // 此注释受 ................................................ 100 字符边距的限制。
                     }
                 }
             }
@@ -146,24 +132,21 @@ smaller:
 }
 ```
 
-#### Doc comments
+#### 文档注释
 
-Prefer line comments (`///`) to block comments (`/** ... */`).
+优先使用行注释 (`///`) 而不是块注释 (`/** ... */`)。
 
-Prefer outer doc comments (`///` or `/** ... */`), only use inner doc comments
-(`//!` and `/*! ... */`) to write module-level or crate-level documentation.
+优先使用外层文档注释（`///` 或 `/** ... */`），仅使用内层文档注释（`//!` 和 `/*! ... */`）编写模块级或 crate 块级的文档。
 
-Put doc comments before attributes.
+将文档注释放在属性之前。
 
-### Attributes
+### 属性
 
-Put each attribute on its own line, indented to the level of the item.
-In the case of inner attributes (`#!`), indent it to the level of the inside of
-the item. Prefer outer attributes, where possible.
+每个属性放在单独一行，跟程序项保持一致的缩进。如果是内部属性 (`#!`)，则缩进到程序项内部的位置。尽可能使用外属性。
 
-For attributes with argument lists, format like functions.
+对于带有参数列表的属性，格式应与函数类似。
 
-```rust
+```rust,ignore
 #[repr(C)]
 #[foo(foo, bar)]
 #[long_multi_line_attribute(
@@ -178,43 +161,34 @@ struct CRepr {
 }
 ```
 
+对于带有等号的属性，在 `=` 前后各加一个空格，如 `#[foo = 42]`。
+
+必须只有一个 `derive` 属性。工具的作者们要注意：如果将多个 `derive` 属性合并为一个属性，通常必须保留派生名称的顺序，以保证正确性： `#[derive(Foo)] #[derive(Bar)] struct Baz;`  必须格式化为 `#[derive(Foo, Bar)] struct Baz;`。
+
 For attributes with an equal sign, put a single space before and after the `=`,
 e.g., `#[foo = 42]`.
 
-There must only be a single `derive` attribute. Note for tool authors: if
-combining multiple `derive` attributes into a single attribute, the ordering of
-the derived names must generally be preserved for correctness:
-`#[derive(Foo)] #[derive(Bar)] struct Baz;` must be formatted to
-`#[derive(Foo, Bar)] struct Baz;`.
+### **简短**程序项
 
-### *small* items
+在本指南的许多地方，我们指定的格式取决于代码结构的**简短**。例如，单行结构文字与多行结构文字：
 
-In many places in this guide we specify formatting that depends on a code
-construct being *small*. For example, single-line vs multi-line struct
-literals:
-
-```rust
-// Normal formatting
+```rust,ignore
+// 正常格式化
 Foo {
     f1: an_expression,
     f2: another_expression(),
 }
 
-// "small" formatting
+// “简短”格式化
 Foo { f1, f2 }
 ```
 
-We leave it to individual tools to decide on exactly what *small* means. In
-particular, tools are free to use different definitions in different
-circumstances.
+我们让各个工具自行决定“简短”的确切含义。特别是，在不同的情况下，工具可以自由使用不同的定义。
 
-Some suitable heuristics are the size of the item (in characters) or the
-complexity of an item (for example, that all components must be simple names,
-not more complex sub-expressions). For more discussion on suitable heuristics,
-see [this issue](https://github.com/rust-lang-nursery/fmt-rfcs/issues/47).
+一些合适的启发式方法是程序项的大小（以字符为单位）或程序项的复杂程度（例如，所有组件必须是简单的名称，而不是更复杂的子表达式）。有关合适的启发式方法的更多讨论，请参考[此讨论问题](https://github.com/rust-lang-nursery/fmt-rfcs/issues/47)。
 
-## [Non-formatting conventions](advice.md)
+## [非格式化约定](advice.md)
 
-## [Cargo.toml conventions](cargo.md)
+## [Cargo.toml 的约定](cargo.md)
 
-## [Principles used for deciding these guidelines](principles.md)
+## [决定这些准则的原则](principles.md)

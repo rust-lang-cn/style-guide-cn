@@ -4,7 +4,7 @@
 
 尽可能使用 Rust 面向表达式的特性；
 
-```rust
+```rust,ignore
 // 使用
 let x = if y { 1 } else { 0 };
 // 不使用

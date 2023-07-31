@@ -20,7 +20,7 @@
 
 尽可能避免在类型中换行。最好在最外层的范围内换行，例如，最好使用以下形式：
 
-```rust
+```rust,ignore
 Foo<
     Bar,
     Baz<Type1, Type2>,
@@ -29,7 +29,7 @@ Foo<
 
 而不采用：
 
-```rust
+```rust,ignore
 Foo<Bar, Baz<
     Type1,
     Type2,
@@ -46,7 +46,7 @@ Foo<Bar, Baz<
 
 断开带 `+` 的类型，方法是在 `+` 之前断开，并在随后的行中用块缩进。断开此类类型时，应在**每个** `+` 之前断开：
 
-```rust
+```rust,ignore
 impl Clone
     + Copy
     + Debug
